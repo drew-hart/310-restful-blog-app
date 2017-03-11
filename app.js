@@ -20,7 +20,7 @@ const blogSchema = mongoose.Schema({
 });
 const Blog = mongoose.model('Blog', blogSchema);
 
-// RESTful App ////////////////////////////
+// RESTful Routes ////////////////////////////
 app.get('/', (req, res) => {
   res.redirect('/blogs');
 });
@@ -36,6 +36,22 @@ app.get('/blogs', (req, res) => {
   });
 });
 
+// REST: NEW route
+app.get('/blogs/new', (req, res) => {
+  res.render('new');
+});
+
+// REST: CREATE route
+app.post('/blogs', (req, res) => {
+  // create blogs
+  Blog.create(req.body.blog, (err) => {
+    if (err) {
+      res.render('new');
+    } else {
+      res.redirect('/blogs');
+    }
+  });
+});
 app.listen(8080, () => {
   console.log('RESTful_blog app running ...');
 });
