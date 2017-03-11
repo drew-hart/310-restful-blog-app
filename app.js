@@ -64,6 +64,28 @@ app.get('/blogs/:id', (req, res) => {
   });
 });
 
+// REST: EDIT route
+app.get('/blogs/:id/edit', (req, res) => {
+  Blog.findById(req.params.id, (err, blog) => {
+    if (err) {
+      console.log(`error: ${err}`);
+      res.redirect('/blogs');
+    } else {
+      res.render('edit', { blog });
+    }
+  });
+});
+
+app.put('/blogs/:id', (req, res) => {
+  Blog.findByIdAndUpdate(req.params.id, req.body.blog, (err) => {
+    if (err) {
+      res.redirect('/blogs');
+    } else {
+      res.redirect('/blogs/' + req.params.id);
+    }
+  });
+});
+
 app.listen(8080, () => {
   console.log('RESTful_blog app running ...');
 });
