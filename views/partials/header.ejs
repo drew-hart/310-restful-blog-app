@@ -4,14 +4,19 @@
 <head>
   <meta charset="UTF-8">
   <title>RESTful Blog</title>
-  <link rel="stylesheet" text="text/css" href="https://cdn.jsdelivr.net/semantic-ui/2.2.9/semantic.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
   <link rel="stylesheet" text="text/css" href="/styles/app.css">
 </head>
 <body>
-<div class="ui fixed inverted menu">
-  <div class="ui container">
-    <div class="header item"><i class="icon idea"></i>Blog Site</div>
-    <a href="/" class="item">Home</a>
-    <a href="/blogs/new" class="item">New Post</a>
-  </div>
-</div>
+  <nav class="navbar navbar-toggleable-md navbar-inverse bg-primary">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="#">RESTful Blog</a>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <div class="navbar-nav">
+          <a href="/" class="nav-item nav-link">Home</a>
+          <a href="/blogs/new" class="nav-item nav-link">New Post</a>
+      </div>
+    </div>
+  </nav>

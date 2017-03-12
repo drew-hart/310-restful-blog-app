@@ -7,7 +7,7 @@
       <img src="<%= blog.image %>" />
       <span><%= blog.created.toDateString(); %></span>
       <p><%= blog.body.substring(0, 140); %></p>
-      <a class="small ui button primary" href="/blogs/<%= blog._id %>">Read more</a>
+      <a class="btn btn-primary" href="/blogs/<%= blog._id %>">Read more</a>
     </div>
   <% }); %>
 

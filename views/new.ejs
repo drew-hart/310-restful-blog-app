@@ -1,22 +1,25 @@
 <% include partials/header %>
 
-<div class="ui main text container">
-  <div class="ui huge header">New Blog</div>
-  <form class="ui form" action="/blogs" method="post">
-    <div class="field">
+<div class="container">
+  <div class="jumbotron">
+  <div class="display-3">New Blog</div>
+</div>
+<div class="container">
+  <form action="/blogs" method="post">
+    <div class="form-group">
       <label>Title</label>
-      <input type="text" name="blog[title]" placeholder="title">
+      <input class="form-control" type="text" name="blog[title]" placeholder="title">
     </div>
-    <div class="field">
+    <div class="form-group">
       <label>Image</label>
-      <input type="text" name="blog[image]" placeholder="image">
+      <input class="form-control" type="text" name="blog[image]" placeholder="image">
     </div>
-    <div class="field">
+    <div class="form-group">
       <label>Blog post</label>
-      <textarea name="blog[body]" placeholder="start your blog post"></textarea>
+      <textarea class="form-control" name="blog[body]" placeholder="start your blog post"></textarea>
     </div>
-    <a href="/blogs" class="ui button default left floated">Back</a>
-    <input class="ui primary button" type="submit">
+    <a href="/blogs" class="btn btn-secondary right">Back</a>
+    <input class="btn btn-primary" type="submit">
   </form>
 </div>
 <% include partials/footer %>

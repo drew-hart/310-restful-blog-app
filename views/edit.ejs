@@ -1,24 +1,27 @@
 <% include partials/header %>
 
-<div class="ui main text container">
-  <div class="ui huge header">Edit <%= blog.title %></div>
-  <form class="ui form" action="/blogs/<%= blog._id %>?_method=PUT" method="post">
-    <div class="field">
+<div class="container">
+  <div class="jumbotron">
+  <div class="display-3">Edit <%= blog.title %></div>
+</div>
+
+  <form action="/blogs/<%= blog._id %>?_method=PUT" method="post">
+    <div class="form-group">
       <label>Title</label>
-      <input type="text" name="blog[title]" value="<%= blog.title %>">
+      <input class="form-control" type="text" name="blog[title]" value="<%= blog.title %>">
     </div>
-    <div class="field">
+    <div class="form-group">
       <label>Image</label>
-      <input type="text" name="blog[image]" value="<%= blog.image %>">
+      <input class="form-control" type="text" name="blog[image]" value="<%= blog.image %>">
     </div>
-    <div class="field">
+    <div class="form-group">
       <label>Blog post</label>
-      <textarea name="blog[body]"><%= blog.body %></textarea>
+      <textarea class="form-control" name="blog[body]"><%= blog.body %></textarea>
     </div>
-    <button class="ui button primary" type="submit">Post</button>
+    <button class="btn btn-primary" type="submit">Post</button>
   </form>
-  <form class="ui form delete" action="/blogs/<%= blog._id %>?_method=DELETE" method="post">
-      <button class="ui red button right floated"type="submit" name="button">Delete</button>
+  <form action="/blogs/<%= blog._id %>?_method=DELETE" method="post">
+      <button class="btn btn-danger"type="submit" name="button">Delete</button>
   </form>
 </div>
 <% include partials/footer %>

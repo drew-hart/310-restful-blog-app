@@ -1,26 +1,21 @@
 <% include partials/header %>
-
-<div class="ui main text container">
-  <div class="ui huge header">  <%= blog.title %></div>
-  <div class="ui top attached segment">
-      <div class="item">
-        <img class="ui centered rounded image" src="<%= blog.image %>" />
-        <div class="content">
-          <span><%= blog.created.toDateString(); %></span>
-        </div>
-        <div class="description">
-          <p><%= blog.body %></p>
-        </div>
-      </div>
-      <form class="" action="/blogs/<%= blog._id %>?_method=DELETE" method="post">
-        <a class="ui button primary" href="/blogs/<%= blog._id %>/edit">Edit</a>
-          <button class="ui red button right floated"type="submit" name="button">Delete</button>
-      </form>
+<div class="container">
+  <div class="jumbotron">
+    <div class="display-3"><%= blog.title %></div>
   </div>
 </div>
-
-
+<div class="container">
+  <div class="card">
+    <img class="card-img-top" src="<%= blog.image %>" />
+    <div class="card-block">
+      <h4 class="card-title"><%= blog.created.toDateString(); %></h4>
+      <p class="card-text"><%= blog.body %></p>
+    </div>
+    <form class="" action="/blogs/<%= blog._id %>?_method=DELETE" method="post">
+    <a class="btn btn-primary" href="/blogs/<%= blog._id %>/edit">Edit</a>
+      <button class="btn btn-danger"type="submit" name="button">Delete</button>
+    </form>
   </div>
-</div>
 
+</div>
 <% include partials/footer %>
