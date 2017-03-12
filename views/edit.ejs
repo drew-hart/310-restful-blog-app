@@ -15,8 +15,10 @@
       <label>Blog post</label>
       <textarea name="blog[body]"><%= blog.body %></textarea>
     </div>
-    <input class="ui button primary" type="submit">
-
+    <button class="ui button primary" type="submit">Post</button>
+  </form>
+  <form class="ui form delete" action="/blogs/<%= blog._id %>?_method=DELETE" method="post">
+      <button class="ui red button right floated"type="submit" name="button">Delete</button>
   </form>
 </div>
 <% include partials/footer %>
