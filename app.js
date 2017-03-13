@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
+const expressSanitizer = require('express-sanitizer');
 
 // Express config ////////////////////////////
 const app = express();
@@ -9,6 +10,7 @@ app.set('view engine', 'ejs');
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
+app.use(expressSanitizer());
 
 // Mongoose config ////////////////////////////
 mongoose.connect('mongodb://localhost/restful_blog');
@@ -43,7 +45,7 @@ app.get('/blogs/new', (req, res) => {
 
 // REST: CREATE route
 app.post('/blogs', (req, res) => {
-  // create blogs
+  req.body.blog.body = req.sanitize(req.body.blog.body);
   Blog.create(req.body.blog, (err) => {
     if (err) {
       res.render('new');
@@ -78,11 +80,12 @@ app.get('/blogs/:id/edit', (req, res) => {
 
 // REST: Update route
 app.put('/blogs/:id', (req, res) => {
+  req.body.blog.body = req.sanitize(req.body.blog.body);
   Blog.findByIdAndUpdate(req.params.id, req.body.blog, (err) => {
     if (err) {
       res.redirect('/blogs');
     } else {
-      res.redirect('/blogs/' + req.params.id);
+      res.redirect(`/blogs/${req.params.id}`);
     }
   });
 });
