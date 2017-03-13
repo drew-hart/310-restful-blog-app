@@ -1,14 +1,29 @@
 <% include partials/header %>
 
-<h1>Hello</h1>
+<div class="jumbotron">
+  <div class="container">
+    <h1>Welcome to RESTFul Blog Excercise</h1>
+  </div>
+</div>
+
+<div class="container">
   <% blogs.forEach( (blog) => { %>
-    <div>
-      <h2><%= blog.title %></h2>
-      <img src="<%= blog.image %>" />
-      <span><%= blog.created.toDateString(); %></span>
-      <p><%= blog.body.substring(0, 140); %></p>
-      <a class="btn btn-primary" href="/blogs/<%= blog._id %>">Read more</a>
+    <div class="row">
+      <div class="container">
+        <div class="col-sm-12 col-md-4">
+          <div class="card">
+            <img class="card-img-top img-fluid img-thumbnail" src="<%= blog.image %>" />
+            <div class="card-block">
+              <h2 class="card-title"><%= blog.title %></h2>
+              <span class="card-subtitle"><%= blog.created.toDateString(); %></span>
+              <p class="card-text"><%= blog.body.substring(0, 140); %></p>
+              <a class="btn btn-primary" href="/blogs/<%= blog._id %>">Read more</a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   <% }); %>
+</div>
 
 <% include partials/footer %>
